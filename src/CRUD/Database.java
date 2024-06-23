@@ -31,15 +31,15 @@ public class Database {
         }
     }
 
-    public void tambahTbGuru(String Kode_Guru, String Nama_Guru, String Alamat, String No_Telepon, String Pendidikan_Akhir){
+    public void tambahTbGuru(String kode_guru, String nama_guru, String alamat, String no_telp, String pendidikan_akhir){
         try {
-            String sql = "insert into tb_guru (Kode_Guru, Nama_Guru, Alamat, No_Telepon, Pendidikan_Akhir) value(?, ?, ?, ?, ?)";
+            String sql = "insert into tb_guru (kode_guru, nama_guru, alamat, no_telp, pendidikan_akhir) value(?, ?, ?, ?, ?)";
             PreparedStatement perintah = connectionDB.prepareStatement(sql);
-            perintah.setString(1, Kode_Guru);
-            perintah.setString(2, Nama_Guru);
-            perintah.setString(3, Alamat);
-            perintah.setString(4, No_Telepon);
-            perintah.setString(5, Pendidikan_Akhir);
+            perintah.setString(1, kode_guru);
+            perintah.setString(2, nama_guru);
+            perintah.setString(3, alamat);
+            perintah.setString(4, no_telp);
+            perintah.setString(5, pendidikan_akhir);
             
             perintah.executeUpdate();
             System.out.println("added");
@@ -51,15 +51,15 @@ public class Database {
     }
 
     
-    public void ubahTbGuru(String Kode_Guru, String Nama_Guru, String Alamat, String No_Telepon, String Pendidikan_Akhir){
+    public void ubahTbGuru(String kode_guru, String nama_guru, String alamat, String no_telp, String pendidikan_akhir){
         try {
-            String sql = "update tb_guru set Nama_Guru = ?, Alamat = ?, No_Telepon = ?, Pendidikan_Akhir = ? where Kode_Guru = ?";
+            String sql = "update tb_guru set nama_guru = ?, alamat = ?, no_telp = ?, pendidikan_akhir = ? where kode_guru = ?";
             PreparedStatement perintah = connectionDB.prepareStatement(sql);
-            perintah.setString(1, Nama_Guru);
-            perintah.setString(2, Alamat);
-            perintah.setString(3, No_Telepon);
-            perintah.setString(4, Pendidikan_Akhir);
-            perintah.setString(5, Kode_Guru);
+            perintah.setString(1, nama_guru);
+            perintah.setString(2, alamat);
+            perintah.setString(3, no_telp);
+            perintah.setString(4, pendidikan_akhir);
+            perintah.setString(5, kode_guru);
 
             
             perintah.executeUpdate();
@@ -71,11 +71,11 @@ public class Database {
         }
     }
     
-    public void hapusTbGuru(String Kode_Guru){
+    public void hapusTbGuru(String kode_guru){
         try {
-            String sql = "delete from tb_guru where Kode_Guru = ?";
+            String sql = "delete from tb_guru where kode_guru = ?";
             PreparedStatement perintah = connectionDB.prepareStatement(sql);
-            perintah.setString(1, Kode_Guru);
+            perintah.setString(1, kode_guru);
             
             perintah.executeUpdate();
             System.out.println("deleted");
@@ -88,13 +88,13 @@ public class Database {
     
     //Tabel Mapel
     
-    public void tambahTbMapel(String Kode_MAPEL, String Nama_MAPEL, String Nilai_Standar_Minimum){
+    public void tambahTbMapel(String kode_mapel, String nama_mapel, String nilai_standar_minimum){
         try {
-            String sql = "insert into tb_mapel (Kode_MAPEL, Nama_MAPEL, Nilai_Standar_Minimum) value(?, ?, ?)";
+            String sql = "insert into tb_mapel (kode_mapel, nama_mapel, nilai_standar_minimum) value(?, ?, ?)";
             PreparedStatement perintah = connectionDB.prepareStatement(sql);
-            perintah.setString(1, Kode_MAPEL);
-            perintah.setString(2, Nama_MAPEL);
-            perintah.setString(3, Nilai_Standar_Minimum);
+            perintah.setString(1, kode_mapel);
+            perintah.setString(2, nama_mapel);
+            perintah.setString(3, nilai_standar_minimum);
     
             
             perintah.executeUpdate();
@@ -107,13 +107,13 @@ public class Database {
     }
 
     
-    public void ubahTbMapel(String Kode_MAPEL, String Nama_MAPEL, String Nilai_Standar_Minimum){
+    public void ubahTbMapel(String kode_mapel, String nama_mapel, String nilai_standar_minimum){
         try {
-            String sql = "update tb_mapel set Nama_MAPEL = ?, Nilai_Standar_Minimum = ? where Kode_MAPEL = ?";
+            String sql = "update tb_mapel set nama_mapel = ?, nilai_standar_minimum = ? where kode_mapel = ?";
             PreparedStatement perintah = connectionDB.prepareStatement(sql);
-            perintah.setString(1, Nama_MAPEL);
-            perintah.setString(2, Nilai_Standar_Minimum);
-            perintah.setString(3, Kode_MAPEL);
+            perintah.setString(1, nama_mapel);
+            perintah.setString(2, nilai_standar_minimum);
+            perintah.setString(3, kode_mapel);
      
             
             perintah.executeUpdate();
@@ -125,11 +125,11 @@ public class Database {
         }
     }
     
-    public void hapusTbMapel(String Kode_MAPEL){
+    public void hapusTbMapel(String kode_mapel){
         try {
-            String sql = "delete from tb_mapel where Kode_MAPEL = ?";
+            String sql = "delete from tb_mapel where kode_mapel = ?";
             PreparedStatement perintah = connectionDB.prepareStatement(sql);
-            perintah.setString(1, Kode_MAPEL);
+            perintah.setString(1, kode_mapel);
             
             perintah.executeUpdate();
             System.out.println("deleted");
@@ -141,13 +141,13 @@ public class Database {
     }
     
     //Tabel Pengampu
-    public void tambahTbPengampu(String Kode_Pengampu, String Kode_Guru, String Kode_MAPEL){
+    public void tambahTbPengampu(String kode_pengampu, String kode_guru, String kode_mapel){
         try {
-            String sql = "insert into tb_pengampu (Kode_Pengampu, Kode_Guru, Kode_MAPEL) value(?, ?, ?)";
+            String sql = "insert into tb_pengampu (kode_pengampu, kode_guru, kode_mapel) value(?, ?, ?)";
             PreparedStatement perintah = connectionDB.prepareStatement(sql);
-            perintah.setString(1, Kode_Pengampu);
-            perintah.setString(2, Kode_Guru);
-            perintah.setString(3, Kode_MAPEL);
+            perintah.setString(1, kode_pengampu);
+            perintah.setString(2, kode_guru);
+            perintah.setString(3, kode_mapel);
     
             
             perintah.executeUpdate();
@@ -160,13 +160,13 @@ public class Database {
     }
 
     
-    public void ubahTbPengampu(String Kode_Pengampu, String Kode_Guru, String Kode_MAPEL){
+    public void ubahTbPengampu(String kode_pengampu, String kode_guru, String kode_mapel){
         try {
-            String sql = "update tb_pengampu set Kode_MAPEL = ?, Kode_Guru = ? where Kode_Pengampu = ?";
+            String sql = "update tb_pengampu set kode_mapel = ?, kode_guru = ? where kode_pengampu = ?";
             PreparedStatement perintah = connectionDB.prepareStatement(sql);
-            perintah.setString(1, Kode_MAPEL );
-            perintah.setString(2, Kode_Guru);
-            perintah.setString(3, Kode_Pengampu);
+            perintah.setString(1, kode_mapel );
+            perintah.setString(2, kode_guru);
+            perintah.setString(3, kode_pengampu);
      
             
             perintah.executeUpdate();
@@ -178,11 +178,11 @@ public class Database {
         }
     }
     
-    public void hapusTbPengampu(String Kode_Pengampu){
+    public void hapusTbPengampu(String kode_pengampu){
         try {
-            String sql = "delete from tb_pengampu where Kode_Pengampu = ?";
+            String sql = "delete from tb_pengampu where kode_pengampu = ?";
             PreparedStatement perintah = connectionDB.prepareStatement(sql);
-            perintah.setString(1, Kode_Pengampu);
+            perintah.setString(1, kode_pengampu);
             
             perintah.executeUpdate();
             System.out.println("deleted");
@@ -194,12 +194,12 @@ public class Database {
     }
     
     //Tabel Ulangan
-    public void tambahTbUlangan(String Kode_Ulangan, String Nama_Ulangan){
+    public void tambahTbUlangan(String kode_ulangan, String nama_ulangan){
         try {
-            String sql = "insert into tb_ulangan (Kode_Ulangan, Nama_Ulangan) value(?, ?)";
+            String sql = "insert into tb_ulangan (kode_ulangan, nama_ulangan) value(?, ?)";
             PreparedStatement perintah = connectionDB.prepareStatement(sql);
-            perintah.setString(1, Kode_Ulangan);
-            perintah.setString(2, Nama_Ulangan);
+            perintah.setString(1, kode_ulangan);
+            perintah.setString(2, nama_ulangan);
     
             
             perintah.executeUpdate();
@@ -212,12 +212,12 @@ public class Database {
     }
 
     
-    public void ubahTbUlangan(String Kode_Ulangan, String Nama_Ulangan){
+    public void ubahTbUlangan(String kode_ulangan, String nama_ulangan){
         try {
-            String sql = "update tb_ulangan set Nama_Ulangan = ? where Kode_Ulangan = ?";
+            String sql = "update tb_ulangan set nama_ulangan= ? where kode_ulangan = ?";
             PreparedStatement perintah = connectionDB.prepareStatement(sql);
-            perintah.setString(1, Nama_Ulangan );
-            perintah.setString(2, Kode_Ulangan);
+            perintah.setString(1, nama_ulangan );
+            perintah.setString(2, kode_ulangan);
             
      
             
@@ -230,11 +230,11 @@ public class Database {
         }
     }
     
-    public void hapusTbUlangan(String Kode_Ulangan){
+    public void hapusTbUlangan(String kode_ulangan){
         try {
-            String sql = "delete from tb_ulangan where Kode_Ulangan = ?";
+            String sql = "delete from tb_ulangan where kode_ulangan = ?";
             PreparedStatement perintah = connectionDB.prepareStatement(sql);
-            perintah.setString(1, Kode_Ulangan);
+            perintah.setString(1, kode_ulangan);
             
             perintah.executeUpdate();
             System.out.println("deleted");
@@ -247,18 +247,18 @@ public class Database {
     
     //Cari Data Tb_Guru
     
-    public void cariTbGuru(String Kode_Guru){
+    public void cariTbGuru(String kode_guru){
         try {
-        String sql="SELECT*FROM tb_guru WHERE Kode_Guru=?";
+        String sql="SELECT*FROM tb_guru WHERE kode_guru=?";
         PreparedStatement perintah = connectionDB.prepareStatement(sql);
-        perintah.setString(1, Kode_Guru);
+        perintah.setString(1, kode_guru);
         ResultSet data = perintah.executeQuery();
         while(data.next()){
-            System.out.print("Kode_Guru :"+data.getString("Kode_Guru"));
-            System.out.print("Nama_Guru :"+data.getString("Nama_Guru"));
-            System.out.print("Alamat :"+data.getString("Alamat"));
-            System.out.print("Nomor_Telepon :"+data.getString("No_Telepon"));
-            System.out.print("Pendidikan_Akhir :"+data.getString("Pendidikan_Akhir"));
+            System.out.print("kode_guru :"+data.getString("kode_guru"));
+            System.out.print("nama_guru :"+data.getString("nama_guru"));
+            System.out.print("alamat :"+data.getString("alamat"));
+            System.out.print("no_telp :"+data.getString("no_telp"));
+            System.out.print("pendidikan_akhir :"+data.getString("pendidikan_akhir"));
             }
            }catch (Exception e) {
             System.out.println(e.getMessage());
@@ -270,13 +270,13 @@ public class Database {
     public void dataTbGuru(){
         try {
         Statement stmt = connectionDB.createStatement();
-        ResultSet baris = stmt.executeQuery("SELECT*FROM tb_guru ORDER by Kode_Guru ASC");
+        ResultSet baris = stmt.executeQuery("SELECT*FROM tb_guru ORDER by kode_guru ASC");
         while(baris.next()){
-           System.out.println(baris.getString("Kode_Guru")+"|"+
-                              baris.getString("Nama_Guru")+"|"+
-                              baris.getString("Alamat")+"|"+
-                              baris.getString("No_Telepon") +"|"+
-                              baris.getString("Pendidikan_Akhir"));
+           System.out.println(baris.getString("kode_guru")+"|"+
+                              baris.getString("nama_guru")+"|"+
+                              baris.getString("alamat")+"|"+
+                              baris.getString("no_telp") +"|"+
+                              baris.getString("pendidikan_akhir"));
             }
            } catch (Exception e) {
             System.err.println(e.getMessage());
@@ -285,16 +285,16 @@ public class Database {
     
       //Cari Data Tb_Mapel
     
-    public void cariTbMapel(String Kode_Mapel){
+    public void cariTbMapel(String kode_mapel){
         try {
-        String sql="SELECT*FROM tb_mapel WHERE Kode_Mapel=?";
+        String sql="SELECT*FROM tb_mapel WHERE kode_mapel=?";
         PreparedStatement perintah = connectionDB.prepareStatement(sql);
-        perintah.setString(1, Kode_Mapel);
+        perintah.setString(1, kode_mapel);
         ResultSet data = perintah.executeQuery();
         while(data.next()){
-            System.out.print("Kode_Mapel :" +data.getString("Kode_Mapel"));
-            System.out.print("Nama_Mapel :" +data.getString("Nama_Mapel"));
-            System.out.print("Nilai_Standar_Minimum :" +data.getString("Nilai_Standar_Minimum"));
+            System.out.print("kode_mapel :" +data.getString("kode_mapel"));
+            System.out.print("nama_mapel :" +data.getString("nama_mapel"));
+            System.out.print("nilai_standar_minimum :" +data.getString("nilai_standar_minimum"));
             }
            }catch (Exception e) {
             System.out.println(e.getMessage());
@@ -306,11 +306,11 @@ public class Database {
     public void dataTbMapel(){
         try {
         Statement stmt = connectionDB.createStatement();
-        ResultSet baris = stmt.executeQuery("SELECT*FROM tb_mapel ORDER by Kode_Mapel ASC");
+        ResultSet baris = stmt.executeQuery("SELECT*FROM tb_mapel ORDER by kode_mapel ASC");
         while(baris.next()){
-           System.out.println(baris.getString("Kode_Mapel")+"|"+
-                              baris.getString("Nama_Mapel")+"|"+
-                              baris.getString("Nilai_Standar_Minimum"));
+           System.out.println(baris.getString("kode_mapel")+"|"+
+                              baris.getString("nama_mapel")+"|"+
+                              baris.getString("nilai_standar_minimum"));
             }
            } catch (Exception e) {
             System.err.println(e.getMessage());
@@ -319,16 +319,16 @@ public class Database {
     
     //Cari Data Tb_Pengampu
     
-    public void cariTbPengampu(String Kode_Pengampu){
+    public void cariTbPengampu(String kode_pengampu){
         try {
-        String sql="SELECT*FROM tb_pengampu WHERE Kode_Pengampu=?";
+        String sql="SELECT*FROM tb_pengampu WHERE kode_pengampu=?";
         PreparedStatement perintah = connectionDB.prepareStatement(sql);
-        perintah.setString(1, Kode_Pengampu);
+        perintah.setString(1, kode_pengampu);
         ResultSet data = perintah.executeQuery();
         while(data.next()){
-            System.out.print("Kode_Pengampu :" +data.getString("Kode_Pengampu"));
-            System.out.print("Kode_Guru :" +data.getString("Kode_Guru"));
-            System.out.print("Kode_MAPEL :" +data.getString("Kode_MAPEL"));
+            System.out.print("kode_pengampu :" +data.getString("kode_pengampu"));
+            System.out.print("kode_guru :" +data.getString("kode_guru"));
+            System.out.print("kode_mapel :" +data.getString("kode_mapel"));
             }
            }catch (Exception e) {
             System.out.println(e.getMessage());
@@ -338,11 +338,11 @@ public class Database {
     public void dataTbPengampu(){
         try {
         Statement stmt = connectionDB.createStatement();
-        ResultSet baris = stmt.executeQuery("SELECT*FROM tb_pengampu ORDER by Kode_Pengampu ASC");
+        ResultSet baris = stmt.executeQuery("SELECT*FROM tb_pengampu ORDER by kode_pengampu ASC");
         while(baris.next()){
-           System.out.println(baris.getString("Kode_Pengampu")+"|"+
-                              baris.getString("Kode_Guru")+"|"+
-                              baris.getString("Kode_Mapel"));
+           System.out.println(baris.getString("kode_pengampu")+"|"+
+                              baris.getString("kode_guru")+"|"+
+                              baris.getString("kode_mapel"));
             }
            } catch (Exception e) {
             System.err.println(e.getMessage());
@@ -351,15 +351,15 @@ public class Database {
     
        //Cari Data Tb_Ulangan
     
-    public void cariTbUlangan(String Kode_Ulangan){
+    public void cariTbUlangan(String kode_ulangan){
         try {
-        String sql="SELECT*FROM tb_ulangan WHERE Kode_Ulangan=?";
+        String sql="SELECT*FROM tb_ulangan WHERE kode_ulangan=?";
         PreparedStatement perintah = connectionDB.prepareStatement(sql);
-        perintah.setString(1, Kode_Ulangan);
+        perintah.setString(1, kode_ulangan);
         ResultSet data = perintah.executeQuery();
         while(data.next()){
-            System.out.print("Kode_Ulangan :" +data.getString("Kode_Ulangan"));
-            System.out.print("Nama_Ulangan :" +data.getString("Nama_Ulangan"));
+            System.out.print("kode_ulangan :" +data.getString("kode_ulangan"));
+            System.out.print("nama_ulangan :" +data.getString("nama_ulangan"));
             }
            }catch (Exception e) {
             System.out.println(e.getMessage());
@@ -371,10 +371,10 @@ public class Database {
     public void dataTbUlangan(){
         try {
         Statement stmt = connectionDB.createStatement();
-        ResultSet baris = stmt.executeQuery("SELECT*FROM tb_ulangan ORDER by Kode_Ulangan ASC");
+        ResultSet baris = stmt.executeQuery("SELECT*FROM tb_ulangan ORDER by kode_ulangan ASC");
         while(baris.next()){
-           System.out.println(baris.getString("Kode_Ulangan")+"|"+
-                              baris.getString("Nama_Ulangan"));
+           System.out.println(baris.getString("kode_ulangan")+"|"+
+                              baris.getString("nama_ulangan"));
             }
            } catch (Exception e) {
             System.err.println(e.getMessage());

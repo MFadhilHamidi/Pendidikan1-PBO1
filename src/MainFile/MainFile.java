@@ -4,6 +4,7 @@
  */
 package MainFile;
 import CRUD.Database;
+import gui.framaUtama;
 /**
  *
  * @author asus
@@ -15,8 +16,8 @@ public class MainFile {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Database dbConnect = new Database();
-        
+        new framaUtama().setVisible(true);
+
         //tb_ulangan
         //dbConnect.hapusTbUlangan("002");
         //dbConnect.ubahTbUlangan("002", "B.ARAB");
