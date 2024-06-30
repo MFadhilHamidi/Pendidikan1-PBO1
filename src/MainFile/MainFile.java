@@ -5,6 +5,8 @@
 package MainFile;
 import CRUD.Database;
 import gui.framaUtama;
+//import tabel.mapel;
+//import tabel.*;
 /**
  *
  * @author asus
@@ -17,7 +19,30 @@ public class MainFile {
      */
     public static void main(String[] args) {
         new framaUtama().setVisible(true);
+        
+        //Tugas 1 Muhammad Fadhil Hamidi - 2210010243
+        //mapel saya = new mapel("212", "MTK", "80");
+        //saya.inputKODEGURU2("II");
+        //saya.inputNAMAGURU2("1");
+        //saya.inputALAMAT2("1");
+        //saya.inputTELP2("1");
+        //saya.inputAKHIR2("2");
+        
+        //System.out.println("Tabel Mapel ");
+        //System.out.println("");
+        //System.out.println("Kode Matakuliah "+saya.ambilKODE());
+        //System.out.println("Nama Matakuliah "+saya.ambilNAMA());
+        //System.out.println("Nilai "+saya.ambilNILAI());
+        //System.out.println("");
+        //System.out.println("Tabel Guru");
+        //System.out.println("");
+        //System.out.println("Kode Guru "+saya.ambilKODEGURU2());
+        //System.out.println("Nama Guru "+saya.ambilNAMAGURU2());
+        //System.out.println("Alamat "+saya.ambilALAMAT2());
+        //System.out.println("Nomor Telepon "+saya.ambilTELP2());
+        //System.out.println("Pendidikan Akhir "+saya.ambilAKHIR2());
 
+        //Tugas 2 Muhammad Fadhil Hamidi - 2210010243
         //tb_ulangan
         //dbConnect.hapusTbUlangan("002");
         //dbConnect.ubahTbUlangan("002", "B.ARAB");

@@ -39,10 +39,10 @@ public class frameGuru extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtno_telp = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtpendidikan_akhir = new javax.swing.JTextField();
         simpan = new javax.swing.JButton();
         ubah = new javax.swing.JButton();
         hapus = new javax.swing.JButton();
+        cmpendidikan_akhir = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -77,6 +77,13 @@ public class frameGuru extends javax.swing.JFrame {
             }
         });
 
+        cmpendidikan_akhir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "S1", "S2", "S3" }));
+        cmpendidikan_akhir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmpendidikan_akhirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,9 +102,8 @@ public class frameGuru extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtpendidikan_akhir)
-                                .addGap(6, 6, 6))
+                                .addGap(18, 18, 18)
+                                .addComponent(cmpendidikan_akhir, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -136,9 +142,9 @@ public class frameGuru extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(txtno_telp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(txtpendidikan_akhir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmpendidikan_akhir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(simpan, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -156,7 +162,7 @@ public class frameGuru extends javax.swing.JFrame {
            String Nama_guru = txtnama_guru.getText();
            String alamat = txtalamat.getText();
            String no_telp = txtno_telp.getText();
-           String pendidikan_akhir = txtpendidikan_akhir.getText();
+           String pendidikan_akhir = cmpendidikan_akhir.getSelectedItem().toString();
            myObject.tambahTbGuru(kode_guru, Nama_guru, alamat, no_telp, pendidikan_akhir);
            JOptionPane.showMessageDialog(null, "Data Berhasil");
         } catch (Exception e) {
@@ -170,7 +176,7 @@ public class frameGuru extends javax.swing.JFrame {
            String Nama_guru = txtnama_guru.getText();
            String alamat = txtalamat.getText();
            String no_telp = txtno_telp.getText();
-           String pendidikan_akhir = txtpendidikan_akhir.getText();
+           String pendidikan_akhir = cmpendidikan_akhir.getSelectedItem().toString();
            myObject.ubahTbGuru(kode_guru, Nama_guru, alamat, no_telp, pendidikan_akhir);
            JOptionPane.showMessageDialog(null, "Data Diubah");
         } catch (Exception e) {
@@ -187,12 +193,16 @@ public class frameGuru extends javax.swing.JFrame {
             txtnama_guru.setText(null);
             txtalamat.setText(null);
             txtno_telp.setText(null);
-            txtpendidikan_akhir.setText(null);
+            cmpendidikan_akhir.setSelectedItem(null);
         
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_hapusActionPerformed
+
+    private void cmpendidikan_akhirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmpendidikan_akhirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmpendidikan_akhirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,6 +240,7 @@ public class frameGuru extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cmpendidikan_akhir;
     private javax.swing.JButton hapus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -241,7 +252,6 @@ public class frameGuru extends javax.swing.JFrame {
     private javax.swing.JTextField txtkode_guru;
     private javax.swing.JTextField txtnama_guru;
     private javax.swing.JTextField txtno_telp;
-    private javax.swing.JTextField txtpendidikan_akhir;
     private javax.swing.JButton ubah;
     // End of variables declaration//GEN-END:variables
 }
